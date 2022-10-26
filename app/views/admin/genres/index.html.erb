@@ -1,0 +1,49 @@
+<%= image_tag('logo.jpg') %>
+
+
+<% if customer_signed_in? %>
+            <li class="nav-item">
+              ようこそ、<%= current_customer.first_name %>さん！
+            </li>
+            <li class="nav-item">
+              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '商品一覧', new_post_image_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'カート', new_post_image_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
+<% elsif admin_signed_in? %>
+            <li class="nav-item">
+              <%= link_to '商品一覧', new_post_image_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '会員一覧', user_path(current_user.id), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "注文履歴一覧", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ジャンル一覧", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
+<% else %>
+            <li class="nav-item">
+              <%= link_to "About",  class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "商品一覧録",  class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "新規登録",  class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン",  class: 'nav-link text-dark' %>
+            </li>
+            <% end %>
