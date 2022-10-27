@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoCake</title>
+    <title>ながのCAKE</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,17 +9,17 @@
     <script src="https://kit.fontawesome.com/148c06dab2.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Kiwi+Maru:wght@500&family=Satisfy&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header class="border-bottom">
-      <div class="bg-dark text-light text-end pt-2 px-3">
-        <p class="text-right"><i class="fa-solid fa-user"></i> ようこそ ゲストさん！</p>
-      </div>
 
-      <div class="container">
+      <div class="container mt-2">
         <div class="row">
 
           <div class="col-8 col-md-5 pb-2">
@@ -37,17 +37,25 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav text-center">
-                    <li class="nav-item pl-5">
-                      <%= link_to "About", admin_genres_path, class: 'nav-link text-dark border-right border-left' %>
+                    <li  class="nav-item pl-4">
+                      <%= link_to admin_genres_path, class: "nav-link text-dark border-right border-left" do %>
+                        <i class="fa-solid fa-circle-question"></i> About
+                      <% end %>
                     </li>
-                    <li class="nav-item pl-5">
-                      <%= link_to "商品一覧", admin_genres_path, class: 'nav-link text-dark border-right border-left' %>
+                    <li  class="nav-item pl-4">
+                      <%= link_to admin_genres_path, class: "nav-link text-dark border-right border-left" do %>
+                        <i class="fa-solid fa-cake-candles"></i> Lineup
+                      <% end %>
                     </li>
-                    <li class="nav-item pl-5">
-                      <%= link_to "新規登録", admin_genres_path, class: 'nav-link text-dark border-right border-left' %>
+                    <li  class="nav-item pl-4">
+                      <%= link_to admin_genres_path, class: "nav-link text-dark border-right border-left" do %>
+                        <i class="fas fa-user-plus"></i> Sign in
+                      <% end %>
                     </li>
-                    <li class="nav-item pl-5">
-                      <%= link_to "ログイン", admin_genres_path, class: 'nav-link text-dark border-right border-left' %>
+                    <li  class="nav-item pl-4">
+                      <%= link_to admin_genres_path, class: "nav-link text-dark border-right border-left" do %>
+                        <i class="fa-solid fa-right-to-bracket"></i> Log in
+                      <% end %>
                     </li>
                   </ul>
                 </div>
@@ -57,7 +65,7 @@
 
             <div class="row justify-content-end pt-3">
               <form class="d-flex" role="search">
-                <input type="text" class="form-control bg-gold text-white" placeholder="検索..." aria-label="検索...">
+                <input type="text" class="form-control bg-gold" placeholder="search" aria-label="検索...">
                 <button type="submit" class="btn btn-dark flex-shrink-0"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>

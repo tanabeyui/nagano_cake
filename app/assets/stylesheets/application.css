@@ -1,13 +1,21 @@
 
-.menu-heading {
-  max-width: 320px;
-  border-bottom: 15px solid #000;
-  line-height: 0.3;
+
+.text_small {
+  font-size: 14px;
 }
 
+.menu-title {
+  font-family: 'DM Serif Display','Zen Antique Soft',sans-serif;
+}
+
+.menu-heading {
+  max-width: 320px;
+  border-bottom: 15px solid #343a40;
+  line-height: 0.4;
+}
 
 .bg-dark_red {
-  background-color: #990e2a;
+  background-color: #66091c;
 }
 
 .bg-gold {
@@ -15,7 +23,7 @@
 }
 
 .text-dark_red {
-  color: #990e2a;
+  color: #66091c;
 }
 
 .text-gold {
