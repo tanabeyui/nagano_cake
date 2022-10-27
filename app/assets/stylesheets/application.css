@@ -1,7 +1,25 @@
 
+.menu-heading {
+  max-width: 320px;
+  border-bottom: 15px solid #000;
+  line-height: 0.3;
+}
+
 
 .bg-dark_red {
   background-color: #990e2a;
+}
+
+.bg-gold {
+  background-color: #c1ab05;
+}
+
+.text-dark_red {
+  color: #990e2a;
+}
+
+.text-gold {
+  color: #c1ab05;
 }
 
 /*

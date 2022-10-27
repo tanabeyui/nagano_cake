@@ -57,8 +57,8 @@
 
             <div class="row justify-content-end pt-3">
               <form class="d-flex" role="search">
-                <input type="text" class="form-control" placeholder="検索..." aria-label="検索...">
-                <button type="submit" class="btn btn-outline-success flex-shrink-0">検索</button>
+                <input type="text" class="form-control bg-gold text-white" placeholder="検索..." aria-label="検索...">
+                <button type="submit" class="btn btn-dark flex-shrink-0"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
 
@@ -68,13 +68,13 @@
       </div>
     </header>
 
-    <main class="mb-5 pb-5">
+    <main>
       <%= yield %>
     </main>
 
 
 
-    <footer class="bg-dark_red">
+    <footer class="bg-dark_red fixed-bottom">
       <div class="container text-white text-center p-5">
         CopyRight Infratop.inc
       </div>
