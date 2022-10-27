@@ -18,7 +18,7 @@
       <div class="bg-dark text-light text-end pt-2 px-3">
         <p class="text-right"><i class="fa-solid fa-user"></i> ようこそ ゲストさん！</p>
       </div>
-      
+
       <div class="container">
         <div class="row">
 
@@ -36,18 +36,18 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <%= link_to "About", class: 'nav-link active text-dark' %>
+                  <ul class="navbar-nav text-center">
+                    <li class="nav-item pl-5">
+                      <%= link_to "About", admin_genres_path, class: 'nav-link text-dark border-right border-left' %>
                     </li>
-                    <li class="nav-item">
-                      <%= link_to "商品一覧",  class: 'nav-link text-dark' %>
+                    <li class="nav-item pl-5">
+                      <%= link_to "商品一覧", admin_genres_path, class: 'nav-link text-dark border-right border-left' %>
                     </li>
-                    <li class="nav-item">
-                      <%= link_to "新規登録",  class: 'nav-link text-dark' %>
+                    <li class="nav-item pl-5">
+                      <%= link_to "新規登録", admin_genres_path, class: 'nav-link text-dark border-right border-left' %>
                     </li>
-                    <li class="nav-item">
-                      <%= link_to "ログイン",  class: 'nav-link text-dark' %>
+                    <li class="nav-item pl-5">
+                      <%= link_to "ログイン", admin_genres_path, class: 'nav-link text-dark border-right border-left' %>
                     </li>
                   </ul>
                 </div>
@@ -55,9 +55,9 @@
               </nav>
             </div>
 
-            <div class="row justify-content-end py-2">
+            <div class="row justify-content-end pt-3">
               <form class="d-flex" role="search">
-                <input type="text" class="form-control me-2" placeholder="検索..." aria-label="検索...">
+                <input type="text" class="form-control" placeholder="検索..." aria-label="検索...">
                 <button type="submit" class="btn btn-outline-success flex-shrink-0">検索</button>
               </form>
             </div>
@@ -68,9 +68,7 @@
       </div>
     </header>
 
-
-
-    <main>
+    <main class="mb-5 pb-5">
       <%= yield %>
     </main>
 
