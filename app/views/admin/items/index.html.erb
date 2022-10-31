@@ -5,46 +5,50 @@
 
     <div class="col-xl-10">
       <table class="table table-bordered">
-          <thead class="text-center table-active">
-            <tr>
-              <th class="px-4">商品ID</th>
-              <th class="px-4 w-50">商品名</th>
-              <th class="px-4">税抜価格</th>
-              <th class="px-4">ジャンル</th>
-              <th class="px-4">ステータス</th>
-            </tr>
-          </thead>
+        <thead class="text-center table-active">
+          <tr>
+            <th class="px-4">商品ID</th>
+            <th class="px-4 w-50">商品名</th>
+            <th class="px-4">税抜価格</th>
+            <th class="px-4">ジャンル</th>
+            <th class="px-4">ステータス</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <% @items.each do |item| %>
-            <tr>
-              <td class="text-center">
-                <%= item.id %>
-              </td>
-              <td class="px-4">
-                <%= link_to admin_item_path(item), class:"text-danger" do%>
-                  <%= item.name %>
-                <% end %>
-              </td>
-              <td class="text-right">
-                <%= item.price.to_s(:delimited) %>
-              </td>
-              <td class="text-center">
-                <%= item.genre.name %>
-              </td>
-              <td class="text-center font-weight-bold">
-                <% if item.is_active == "on_sale" %>
-                  <span class="text-success"><%= item.is_active %></span>
-                <% else %>
-                  <span class="text-black-50"><%= item.is_active %></span>
-                <% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td class="text-center">
+              <%= item.id %>
+            </td>
+            <td class="px-4">
+              <%= link_to admin_item_path(item), class:"text-danger" do%>
+                <%= item.name %>
+              <% end %>
+            </td>
+            <td class="text-right">
+              <%= item.price.to_s(:delimited) %>
+            </td>
+            <td class="text-center">
+              <%= item.genre.name %>
+            </td>
+            <td class="text-center font-weight-bold">
+              <% if item.is_active == "on_sale" %>
+                <span class="text-success"><%= item.is_active %></span>
+              <% else %>
+                <span class="text-black-50"><%= item.is_active %></span>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
 
   </div>
+
+  <div class="row justify-content-center">
+    <%= paginate @items %>
+  </div>
+
 </div>
