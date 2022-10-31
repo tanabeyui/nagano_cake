@@ -1,2 +1,49 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container pt-5">
+  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>会員詳細情報</strong></h5>
+
+  <div class="row justify-content-center py-5">
+
+
+    <div class="col-lg-9">
+      <table class="table table-borderless">
+        <tbody>
+           <tr>
+            <th>会員ID</th>
+            <td><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <th>氏名</th>
+            <td class="w-75"><%= @customer.first_name %> <%= @customer.last_name %></td>
+          </tr>
+          <tr>
+            <th>フリガナ</th>
+            <td class="w-75"><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <td class="w-75"><%= @customer.postal_code %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td class="w-75"><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td class="w-75"><%= @customer.telephone_number %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td class="w-75"><%= @customer.email %></td>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <td class="w-75"><%= @customer.is_deleted %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-light bg-gold btn-block" %>
+    </div>
+
+  </div>
+</div>
