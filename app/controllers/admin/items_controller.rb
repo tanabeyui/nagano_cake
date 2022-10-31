@@ -1,13 +1,17 @@
 class Admin::ItemsController < ApplicationController
   def new
-    @item = Item.new
     @genres = Genre.all
+    @item = Item.new
   end
 
   def create
+    @genres = Genre.all
     @item = Item.new(item_params)
-    @item.save
-    redirect_to admin_items_path
+    if @item.save
+      redirect_to admin_items_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -20,14 +24,14 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @genres = Genre.all
+    @item = Item.find(params[:id])
   end
 
   def update
+    @genres = Genre.all
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      flash[:notice] = "You have updated book successfully."
       redirect_to admin_item_path(@item)
     else
       render :edit
@@ -35,10 +39,17 @@ class Admin::ItemsController < ApplicationController
   end
 
 
+
+
+
   private
 
   def item_params
     params.require(:item).permit(:name, :image, :introduction, :genre_id, :price, :is_active)
+  end
+  
+  def add_tax_price
+    (self.price * 1.10).round
   end
 
 end

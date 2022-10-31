@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container py-5">
   <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>商品詳細</strong></h5>
 
   <div class="row justify-content-center py-5">
@@ -8,7 +8,7 @@
     </div>
 
 
-    <div class="col-lg-6">
+    <div class="col-lg-7">
       <table class="table table-borderless">
         <tbody>
           <tr>
@@ -26,11 +26,17 @@
           <tr>
             <th>税込価格<br>
             <span class="small">(税抜価格)</span></th>
-            <td class="w-75"><%= (@item.price * 1.1).to_s(:delimited) %> (<%= @item.price %>) 円</td>
+            <td class="w-75"><%= @item.add_tax_price.to_s(:delimited) %> ( <%= @item.price.to_s(:delimited) %> ) 円</td>
           </tr>
           <tr>
             <th>販売ステータス</th>
-            <td class="w-75"><%= @item.is_active %></td>
+            <td class="w-75 font-weight-bold">
+              <% if @item.is_active == "on_sale" %>
+                <span class="text-success"><%= @item.is_active %></span>
+              <% else %>
+                <span class="text-black-50"><%= @item.is_active %></span>
+              <% end %>
+            </td>
           </tr>
         </tbody>
       </table>

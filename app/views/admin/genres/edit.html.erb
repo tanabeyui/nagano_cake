@@ -1,28 +1,28 @@
-<div class="container pt-5">
+<div class="container">
+  <% if @genre.errors.any? %>
+    <div class="alert alert-danger mb-0" role="alert">※ジャンル名を入力してください<</div>
+  <% end %>
+</div>
+
+<div class="container py-5">
   <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>ジャンル編集</strong></h5>
 
+  <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+    <div class="form-group row justify-content-center py-5">
 
-    <%= form_with model: @genre, url: admin_genre_path, method: :patch  do |f| %>
-      <div class="row justify-content-center py-5">
-
-        <div class="col-md-2 pt-2 text-right">
-          <label_for="genre_name">ジャンル名</label>
-        </div>
-
-        <div class="col-md-6">
-          <%= f.text_field :name, class: "form-control", placeholder: "ジャンル名", id: "genre_name" %>
-          <% if @genre.errors.any? %>
-            <div class="text-danger">※ジャンル名を入力してください</div>
-          <% end %>
-        </div>
-
-        <div class="col-md-2">
-          <%= f.submit "　変更を保存　", class: "btn btn-light bg-gold" %>
-        </div>
-
+      <div class="col-sm-2 text-center">
+        <%= f.label :"ジャンル名", class: "col-form-label", for: "genre_name" %>
       </div>
-    <% end %>
 
+      <div class="col-sm-6">
+        <%= f.text_field :name, class: "form-control", placeholder: "ジャンル名", id: "genre_name" %>
+      </div>
 
+      <div class="col-sm-2">
+        <%= f.submit "変更を保存", class: "btn btn-light bg-gold btn-block" %>
+      </div>
+
+    </div>
+  <% end %>
 
 </div>

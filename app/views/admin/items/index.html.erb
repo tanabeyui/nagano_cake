@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container py-5">
   <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>商品一覧</strong></h5>
 
   <div class="row justify-content-center py-5">
@@ -32,8 +32,12 @@
               <td class="text-center">
                 <%= item.genre.name %>
               </td>
-              <td class="text-center">
-                <%= item.is_active %>
+              <td class="text-center font-weight-bold">
+                <% if item.is_active == "on_sale" %>
+                  <span class="text-success"><%= item.is_active %></span>
+                <% else %>
+                  <span class="text-black-50"><%= item.is_active %></span>
+                <% end %>
               </td>
             </tr>
             <% end %>
