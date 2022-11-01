@@ -32,9 +32,9 @@
             <th>販売ステータス</th>
             <td class="w-75 font-weight-bold">
               <% if @item.is_active == "on_sale" %>
-                <span class="text-success"><%= @item.is_active %></span>
+                <span class="text-success"><%= @item.is_active_i18n %></span>
               <% else %>
-                <span class="text-black-50"><%= @item.is_active %></span>
+                <span class="text-black-50"><%= @item.is_active_i18n %></span>
               <% end %>
             </td>
           </tr>

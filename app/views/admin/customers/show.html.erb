@@ -39,9 +39,9 @@
             <th>会員ステータス</th>
             <td class="w-75 font-weight-bold">
               <% if @customer.is_deleted == "membership" %>
-                <span class="text-success"><%= @customer.is_deleted %></span>
+                <span class="text-success"><%= @customer.is_deleted_i18n %></span>
               <% else %>
-                <span class="text-black-50"><%= @customer.is_deleted %></span>
+                <span class="text-black-50"><%= @customer.is_deleted_i18n %></span>
               <% end %>
               </td>
           </tr>
