@@ -1,0 +1,47 @@
+<div class="container py-5">
+  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>注文履歴一覧</strong></h5>
+
+  <div class="row justify-content-center py-5">
+
+    <div class="col-xl-11">
+      <table class="table table-bordered">
+          <thead class="text-center table-active">
+            <tr>
+              <th class="px-4 w-50">購入日時</th>
+              <th class="px-4">購入者</th>
+              <th class="px-4">注文個数</th>
+              <th class="px-4">注文ステータス</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @orders.each do |order| %>
+            <tr>
+              <td class="text-center">
+                <%= link_to admin_order_path(order), class:"text-danger" do%>
+                  <%= order.created_at %>
+                <% end %>
+              </td>
+              <td class="px-4">
+                <%= order.customer.first_name %> <%= order.customer.last_name %>
+              </td>
+              <td>
+                <%= order.payment_price %>
+              </td>
+              <td class="text-center">
+                <%= order.order_status_i18n %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+    </div>
+
+  </div>
+
+  <div class="row justify-content-center">
+    <%= paginate @orders %>
+  </div>
+
+</div>
