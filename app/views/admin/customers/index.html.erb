@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container py-5">
   <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>会員一覧</strong></h5>
 
   <div class="row justify-content-center py-5">
@@ -28,8 +28,12 @@
               <td>
                 <%= customer.email %>
               </td>
-              <td class="text-center">
-                <%= customer.is_deleted %>
+              <td class="text-center font-weight-bold">
+                <% if customer.is_deleted == "membership" %>
+                  <span class="text-success"><%= customer.is_deleted %></span>
+                <% else %>
+                  <span class="text-black-50"><%= customer.is_deleted %></span>
+                <% end %>
               </td>
             </tr>
             <% end %>
