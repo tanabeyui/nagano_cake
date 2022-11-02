@@ -1,17 +1,27 @@
+h1 {
+  z-index: 20;
+}
 
+.main-visual {
+  height: 400px;
+  background-image: url(top-v.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: 10;
+}
 
-.text_small {
-  font-size: 14px;
+.bg-img {
+  background-image: url(background.jpg);
+  background-repeat: repeat;
+  z-index: 0;
 }
 
 .menu-title {
   font-family: 'DM Serif Display','Zen Antique Soft',sans-serif;
 }
 
-.menu-heading {
-  max-width: 320px;
-  border-bottom: 15px solid #343a40;
-  line-height: 0.4;
+.menu-line {
+  border: 10px solid;
 }
 
 .bg-dark_red {

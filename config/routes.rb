@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  root to: 'public/homes#top'
+  get '/about' => 'public/homes#about', as: 'about'
+
   namespace :admin do
     root to: 'homes#top'
     resources :homes, only: [:top]

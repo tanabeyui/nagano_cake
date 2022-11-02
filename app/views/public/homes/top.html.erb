@@ -1,0 +1,69 @@
+<div class="container">
+
+  <div class="row justify-content-between">
+
+    <div class="col-md-2 pl-0 pr-4">
+      <div class="bg-dark py-5">
+        <h3 class="text-gold px-3">Menu</h3>
+        <hr class="bg-light mt-n2"></hr>
+        <% @genres.each do |genre| %>
+          <p class="text-white px-3"><%= genre.name %></p>
+        <% end %>
+        </p>
+      </div>
+    </div>
+
+
+    <div class="col-md-10 bg-img">
+
+      <div class="row">
+        <div class="col-3">
+          <div class="row bg-white pt-4">
+            <h1 class="text-nowrap">ようこそ、ながのCAKEへ</h1>
+            <p class="small py-2">
+              このサイトは<br>
+              ケーキ販売ECサイトになります。<br>
+              <br>
+              会員でない方も商品の閲覧はできますが、
+              購入には会員登録が必要となります。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-9 main-visual">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <h2 class="text-gold">New</h2>
+          <hr class="menu-line border-dark mt-n4 mx-n3"></hr>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <% @items.each do |item| %>
+            <div class="card mx-2 p-1" style="width: 13rem;">
+              <%= image_tag item.get_image(250,400), class: "card-img-top" %>
+              <div class="card-body p-2">
+                <p class="card-title small font-weight-bold"><%= item.name %></p>
+                <p class="card-text small text-right"><%= item.price.to_s(:delimited) %> 円</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+      <div class="row justify-content-end pt-2 pb-4">
+        <div class="col-sm-3 p-3">
+          <button type="button" class="btn btn-sm btn-block btn-light bg-gold">
+             <%= link_to "すべての商品を見る ≫", class: "text-dark" %>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
