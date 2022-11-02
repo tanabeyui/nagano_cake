@@ -11,6 +11,14 @@ h1, h2 {
   z-index: 10;
 }
 
+.about-visual {
+  height: 800px;
+  background-image: url(visual02.jpg);
+  background-size: cover;
+  background-position: top;
+  z-index: 10;
+}
+
 .bg-img {
   background-image: url(background.jpg);
   background-repeat: repeat;

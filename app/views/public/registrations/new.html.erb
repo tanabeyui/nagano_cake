@@ -91,8 +91,11 @@
   </div>
   <h6 class="d-inline p-2 px-5 bg-secondary text-white my-3"><strong>既に登録済みの方</strong></h6>
   <div class="row mx-5">
-  <p class="p-4">
-      <%= link_to "　こちら　", about_path, class: "text-danger font-weight-bold" %>からログインしてください。
+  <p class="pt-4">
+    <%= link_to admin_items_path, class: "text-danger" do %>
+      こちら<i class="fa-sharp fa-solid fa-door-open"></i>
+    <% end %>
+    からログインしてください。
   </p>
   </div>
 
