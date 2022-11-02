@@ -1,26 +1,39 @@
-<h2>Log in</h2>
+<div class="container py-5">
+  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>ログイン</strong></h5>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="mx-5 mb-5 p-5 bg-img">
+    <%= form_with model: @customer, url: customer_session_path, method: :post do |f| %>
+
+      <div class="form-group row justify-content-center">
+        <%= f.label :"メールアドレス", class: "col-md-3 col-form-label font-weight-bold" %>
+        <div class="col-md-7 px-1">
+          <%= f.text_field :email, class: "form-control", placeholder:"sample@example.com" %>
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-center">
+        <%= f.label :"パスワード", class: "col-md-3 col-form-label font-weight-bold" %>
+        <div class="col-md-7 px-1">
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder:"" %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="col-md-8 pt-2 mx-auto">
+          <%= f.submit "ログイン", class: "btn btn-light bg-gold btn-block" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <h6 class="d-inline p-2 px-5 bg-secondary text-white my-3"><strong>会員登録がお済みでない方</strong></h6>
+  <div class="row mx-5 px-5">
+  <p class="pt-4">
+    <%= link_to admin_items_path, class: "text-danger" do %>
+      こちら<i class="fa-sharp fa-solid fa-door-open"></i>
+    <% end %>
+    から新規登録を行ってください。
+  </p>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>
