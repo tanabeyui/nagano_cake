@@ -33,42 +33,49 @@
 
           <div class="col-4 col-md-7">
 
-            <div class="row justify-content-end">
-              <nav class="navbar navbar-expand-md navbar-light p-0 justify-content-end">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="row">
+              <nav class="navbar navbar-expand-md navbar-light p-0 ml-auto">
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav text-center">
                     <li  class="nav-item pl-4">
-                      <%= link_to about_path, class: "nav-link text-dark border-right border-left" do %>
+                      <%= link_to about_path, class: "nav-link btn-light border-right border-left" do %>
                         <i class="fa-solid fa-circle-question"></i> About
                       <% end %>
                     </li>
                     <li  class="nav-item pl-4">
-                      <%= link_to admin_items_path, class: "nav-link text-dark border-right border-left" do %>
+                      <%= link_to admin_items_path, class: "nav-link btn-light border-right border-left" do %>
                         <i class="fa-solid fa-cake-candles"></i> Lineup
                       <% end %>
                     </li>
                     <li  class="nav-item pl-4">
-                      <%= link_to admin_genres_path, class: "nav-link text-dark border-right border-left" do %>
+                      <%= link_to admin_genres_path, class: "nav-link btn-light border-right border-left" do %>
                         <i class="fas fa-user-plus"></i> Sign in
                       <% end %>
                     </li>
                     <li  class="nav-item pl-4">
-                      <%= link_to admin_genres_path, class: "nav-link text-dark border-right border-left" do %>
+                      <%= link_to admin_genres_path, class: "nav-link btn-light border-right border-left" do %>
                         <i class="fa-solid fa-right-to-bracket"></i> Log in
                       <% end %>
                     </li>
+                    <% if customer_signed_in? %>
+                      <li  class="nav-item pl-4">
+                        <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link btn-light border-right border-left" do%>
+                          <i class="fas fa-sign-out-alt"></i> Log out
+                        <% end %>
+                      </li>
+                    <% end %>
                   </ul>
                 </div>
 
               </nav>
             </div>
 
-            <div class="row justify-content-end pt-3">
-              <form class="d-flex" role="search">
+            <div class="row pt-3">
+              <form class="d-flex ml-auto" role="search">
                 <input type="text" class="form-control bg-gold" placeholder="search" aria-label="検索...">
                 <button type="submit" class="btn btn-dark flex-shrink-0"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>

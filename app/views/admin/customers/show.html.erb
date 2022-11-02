@@ -1,10 +1,12 @@
 <div class="container py-5">
-  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>会員詳細情報</strong></h5>
+  <h5 class="d-inline p-2 px-5 bg-dark text-white">
+    <strong><%= @customer.first_name %> <%= @customer.last_name %>さん の 会員詳細情報</strong>
+  </h5>
 
-  <div class="row justify-content-center py-5">
+  <div class="row py-5">
 
 
-    <div class="col-lg-9">
+    <div class="col-lg-9 mx-auto">
       <table class="table table-borderless">
         <tbody>
            <tr>
