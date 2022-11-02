@@ -1,12 +1,13 @@
-h1 {
+h1, h2 {
   z-index: 20;
+  font-family: 'Lobster', 'Zen Antique', serif;
 }
 
 .main-visual {
   height: 400px;
-  background-image: url(top-v.jpg);
+  background-image: url(visual01.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: top;
   z-index: 10;
 }
 

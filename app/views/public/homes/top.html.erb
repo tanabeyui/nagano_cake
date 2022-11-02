@@ -4,8 +4,8 @@
 
     <div class="col-md-2 pl-0 pr-4">
       <div class="bg-dark py-5">
-        <h3 class="text-gold px-3">Menu</h3>
-        <hr class="bg-light mt-n2"></hr>
+        <h2 class="text-gold px-3 pb-1">Menu</h2>
+        <hr class="bg-light mt-n3"></hr>
         <% @genres.each do |genre| %>
           <p class="text-white px-3"><%= genre.name %></p>
         <% end %>
@@ -19,7 +19,7 @@
       <div class="row">
         <div class="col-3">
           <div class="row bg-white pt-4">
-            <h1 class="text-nowrap">ようこそ、ながのCAKEへ</h1>
+            <h1 class="text-gold text-nowrap">ようこそ、ながのＣＡＫＥへ</h1>
             <p class="small py-2">
               このサイトは<br>
               ケーキ販売ECサイトになります。<br>
@@ -36,7 +36,7 @@
 
       <div class="row">
         <div class="col-md-4">
-          <h2 class="text-gold">New</h2>
+          <h1 class="text-gold">New</h1>
           <hr class="menu-line border-dark mt-n4 mx-n3"></hr>
         </div>
       </div>
@@ -57,8 +57,8 @@
       </div>
       <div class="row justify-content-end pt-2 pb-4">
         <div class="col-sm-3 p-3">
-          <button type="button" class="btn btn-sm btn-block btn-light bg-gold">
-             <%= link_to "すべての商品を見る ≫", class: "text-dark" %>
+          <button type="button" class="btn btn-sm btn-block bg-gold text-dark">
+             <%= link_to "すべての商品を見る ≫", about_path, class: "text-dark" %>
           </button>
         </div>
       </div>
