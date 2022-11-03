@@ -1,27 +1,19 @@
-<div class="container">
-  <% if @genre.errors.any? %>
-    <div class="alert alert-danger mb-0" role="alert">※ジャンル名を入力してください</div>
-  <% end %>
-</div>
-
 <div class="container py-5">
-  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>ジャンル一覧・追加</strong></h5>
+  <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>ジャンル一覧・追加</strong></h5>
 
   <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
-    <div class="form-group row justify-content-center py-5">
-
-      <div class="col-sm-2 text-center">
+    <div class="row form-group justify-content-center py-5">
+      <div class="col-md-2 text-center">
         <%= f.label :"ジャンル名", class: "col-form-label", for: "genre_name" %>
       </div>
 
-      <div class="col-sm-6">
+      <div class="col-md-6">
         <%= f.text_field :name, class: "form-control", placeholder: "ジャンル名", id: "genre_name" %>
       </div>
 
-      <div class="col-sm-2">
+      <div class="col-md-2">
         <%= f.submit "新規登録", class: "btn btn-light bg-gold  btn-block" %>
       </div>
-
     </div>
   <% end %>
 
@@ -50,6 +42,5 @@
       </table>
     </div>
   </div>
-
 
 </div>

@@ -1,16 +1,15 @@
 <div class="container py-5">
-  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>会員一覧</strong></h5>
+  <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>会員一覧</strong></h5>
 
-  <div class="row py-5">
-
-    <div class="col-xl-10 mx-auto">
+  <div class="row">
+    <div class="col-xl-10 mx-auto my-4">
       <table class="table table-bordered">
           <thead class="text-center table-active">
             <tr>
-              <th class="px-4">会員ID</th>
-              <th class="px-4 w-50">氏名</th>
-              <th class="px-4 w-25">メールアドレス</th>
-              <th class="px-4">ステータス</th>
+              <th>会員ID</th>
+              <th class="w-50">氏名</th>
+              <th class="w-25">メールアドレス</th>
+              <th>ステータス</th>
             </tr>
           </thead>
 
@@ -39,8 +38,11 @@
             <% end %>
           </tbody>
         </table>
-
     </div>
-
   </div>
+
+  <div class="row justify-content-center">
+    <%= paginate @customers %>
+  </div>
+
 </div>

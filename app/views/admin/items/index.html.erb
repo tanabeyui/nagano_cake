@@ -1,17 +1,21 @@
 <div class="container py-5">
-  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>商品一覧</strong></h5>
+  <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>商品一覧</strong></h5>
 
-  <div class="row py-5">
+  <div class="row">
+    <div class="col-xl-10 mx-auto my-4">
 
-    <div class="col-xl-10 mx-auto">
+      <p class="w-50 mb-3 ml-auto">
+        <%= link_to "新しい商品を登録する", new_admin_item_path, class: "btn btn-light bg-gold btn-block" %>
+      </p>
+
       <table class="table table-bordered">
         <thead class="text-center table-active">
           <tr>
-            <th class="px-4">商品ID</th>
-            <th class="px-4 w-50">商品名</th>
-            <th class="px-4">税抜価格</th>
-            <th class="px-4">ジャンル</th>
-            <th class="px-4">ステータス</th>
+            <th>商品ID</th>
+            <th class="w-50">商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
           </tr>
         </thead>
 

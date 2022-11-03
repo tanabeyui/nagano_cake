@@ -1,16 +1,16 @@
 <div class="container py-5">
-  <h5 class="d-inline p-2 px-5 bg-dark text-white">
+  <h5 class="d-inline py-2 px-5 bg-dark text-white">
     <strong><%= @customer.first_name %> <%= @customer.last_name %>さん の 会員情報編集</strong>
   </h5>
 
-  <div class="row justify-content-center">
-    <div class="col-md-9 mt-5">
+  <div class="row">
+    <div class="col-md-9 mx-auto my-5">
 
-      <div class="form-group row">
-        <div class="col-sm-3 px-3 py-2">
+      <div class="row py-3">
+        <div class="col-sm-3">
           会員ID
         </div>
-        <div class="col-sm-4 px-3 py-2">
+        <div class="col-sm-4">
           <%= @customer.id %>
         </div>
       </div>
@@ -19,66 +19,66 @@
 
         <div class="form-group row">
           <%= f.label :"氏名", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-4 px-1">
-            <%= f.text_field :first_name, class: "form-control", placeholder:"" %>
+          <div class="col-sm-4">
+            <%= f.text_field :first_name, class: "form-control" %>
           </div>
-          <div class="col-sm-4 px-1">
-            <%= f.text_field :last_name, class: "form-control",  placeholder:"" %>
+          <div class="col-sm-4">
+            <%= f.text_field :last_name, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
           <%= f.label :"フリガナ", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-4 px-1">
-            <%= f.text_field :first_name_kana, class: "form-control", placeholder:"" %>
+          <div class="col-sm-4">
+            <%= f.text_field :first_name_kana, class: "form-control" %>
           </div>
-          <div class="col-sm-4 px-1">
-            <%= f.text_field :last_name_kana, class: "form-control",  placeholder:"" %>
+          <div class="col-sm-4">
+            <%= f.text_field :last_name_kana, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
           <%= f.label :"郵便番号", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-4 px-1">
-            <%= f.text_field :postal_code, class: "form-control", placeholder:"" %>
+          <div class="col-sm-4">
+            <%= f.text_field :postal_code, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
           <%= f.label :"住所", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-9 px-1">
-            <%= f.text_field :address, class: "form-control", placeholder:"" %>
+          <div class="col-sm-9">
+            <%= f.text_field :address, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
           <%= f.label :"電話番号", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-4 px-1">
-            <%= f.text_field :telephone_number, class: "form-control", placeholder:"" %>
+          <div class="col-sm-4">
+            <%= f.text_field :telephone_number, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
           <%= f.label :"メールアドレス", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-4 px-1">
-            <%= f.text_field :email, class: "form-control", placeholder:"" %>
+          <div class="col-sm-4">
+            <%= f.text_field :email, class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group row pb-3">
+        <div class="form-group row">
           <%= f.label :"会員ステータス", class: "col-sm-3 col-form-label" %>
 
-          <div class="form-check form-check-inline px-3">
+          <div class="form-check form-check-inline">
             <%= f.radio_button :is_deleted, :membership, id: "item_on_sale" %>
-            <%= f.label :"有効", class: "form-check-label px-1", for: "item_on_sale" %>
+            <%= f.label :"有効", class: "form-check-label px-2", for: "item_on_sale" %>
           </div>
           <div class="form-check form-check-inline">
             <%= f.radio_button :is_deleted, :unsubscribe, id: "item_stop_sell" %>
-            <%= f.label :"退会", class: "form-check-label px-1", for: "item_stop_sell" %>
+            <%= f.label :"退会", class: "form-check-label px-2", for: "item_stop_sell" %>
           </div>
         </div>
 
-        <div class="actions">
+        <div class="actions pt-3">
           <%= f.submit "変更を保存", class: "btn btn-light bg-gold btn-block" %>
         </div>
       <% end %>

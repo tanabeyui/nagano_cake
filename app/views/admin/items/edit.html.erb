@@ -1,69 +1,64 @@
-<div class="container">
-  <% if @item.errors.any? %>
-    <div class="alert alert-danger mb-0" role="alert">※未入力の項目があります</div>
-  <% end %>
-</div>
-
 <div class="container py-5">
-  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>商品編集</strong></h5>
+  <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>商品編集</strong></h5>
 
-
-  <div class="row justify-content-center">
-    <div class="col-md-7 mt-4">
+  <div class="row">
+    <div class="col-md-8 mx-auto my-5">
       <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
 
         <div class="form-group row">
-          <%= f.label :"商品画像", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-8">
+          <%= f.label :"商品画像", class: "col-md-3 col-form-label" %>
+          <div class="col-md-8">
             <%= f.file_field :image, accept: "image/*", class: "py-1 form-control-file", id: "image_file" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <%= f.label :"商品名", class: "col-sm-3 col-form-label", for: "item_name" %>
-          <div class="col-sm-8">
+          <%= f.label :"商品名", class: "col-md-3 col-form-label", for: "item_name" %>
+          <div class="col-md-8">
             <%= f.text_field :name, class: "form-control", id: "item_name", placeholder:"商品名" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <%= f.label :"商品説明", class: "col-sm-3 col-form-label", for: "item_introduction" %>
-          <div class="col-sm-8">
+          <%= f.label :"商品説明", class: "col-md-3 col-form-label", for: "item_introduction" %>
+          <div class="col-md-8">
             <%= f.text_area :introduction, class: "form-control", id: "item_introduction", rows:"6", placeholder:"ここに説明文を記述します" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <%= f.label :"ジャンル", class: "col-sm-3", for: "item_genre" %>
-          <div class="col-sm-8">
+          <%= f.label :"ジャンル", class: "col-md-3", for: "item_genre" %>
+          <div class="col-md-8">
             <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] },{ include_blank: "--選択してください--" }, { id: "item_genre", class: "form-control" } %>
           </div>
         </div>
 
         <div class="form-group row">
-          <%= f.label :"販売価格", class: "col-sm-3", for: "item_price" %>
-          <div class="col-sm-8">
+          <%= f.label :"販売価格", class: "col-md-3", for: "item_price" %>
+          <div class="col-md-8">
             <%= f.number_field :price, class: "form-control", id: "item_price", placeholder:"1000" %>
           </div>
-          <div class="col-sm-1 p-0 pt-2">
+          <div class="col-md-1 px-0 pt-2">
             円
           </div>
         </div>
 
-        <div class="form-group row pb-3">
-          <%= f.label :"販売ステータス", class: "col-sm-3 col-form-label" %>
+        <div class="form-group row">
+          <%= f.label :"販売ステータス", class: "col-md-3 col-form-label" %>
 
-          <div class="form-check form-check-inline px-3">
+          <div class="form-check form-check-inline">
             <%= f.radio_button :is_active, :on_sale, id: "item_on_sale" %>
-            <%= f.label :"販売中", class: "form-check-label px-1", for: "item_on_sale" %>
+            <%= f.label :"販売中", class: "form-check-label px-2", for: "item_on_sale" %>
           </div>
           <div class="form-check form-check-inline">
             <%= f.radio_button :is_active, :stop_sell, id: "item_stop_sell" %>
-            <%= f.label :"販売停止中", class: "form-check-label px-1", for: "item_stop_sell" %>
+            <%= f.label :"販売停止中", class: "form-check-label px-2", for: "item_stop_sell" %>
           </div>
         </div>
 
+        <div class="actions pt-3">
         <%= f.submit '変更を保存', class:"btn btn-light bg-gold btn-block" %>
+        </div>
       <% end %>
 
     </div>
