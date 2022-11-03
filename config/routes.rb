@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about', as: 'about'
+  get '/customers' => 'public/customers#show'
+  get '/customers/information/edit' => 'public/customers#edit'
+  patch '/customers/information/' => 'public/customers#update'
+  get '/customers/confirm' => 'public/customers#confirm'
+  patch '/customers' => 'public/customers#unsubscribe', as: 'customers_unsubscribe'
+
 
   namespace :admin do
     root to: 'homes#top'
