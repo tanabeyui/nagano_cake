@@ -9,10 +9,13 @@ Rails.application.routes.draw do
   get '/customers/confirm' => 'public/customers#confirm'
   patch '/customers' => 'public/customers#unsubscribe', as: 'customers_unsubscribe'
 
+  delete '/cart_items' => 'public/cart_items#destroy_all'
+
 
   scope module: :public do
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
+    resources :cart_items, only: [:create, :index, :update, :destroy]
   end
 
   namespace :admin do
