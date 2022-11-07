@@ -29,16 +29,18 @@
       <div class="row d-flex justify-content-center">
         <% @items.each do |item| %>
           <div class="card mx-2 p-1" style="width: 13rem;">
-            <%= image_tag item.get_image(250,175), class: "card-img-top" %>
-            <div class="card-body p-2">
-              <p class="card-title small font-weight-bold"><%= item.name %></p>
-              <p class="card-text small text-right"><%= item.price.to_s(:delimited) %> 円</p>
-            </div>
+            <%= link_to item_path(item), class: "text-dark text-decoration-none" do %>
+              <%= image_tag item.get_image(250,175), class: "card-img-top" %>
+              <div class="card-body p-2">
+                <p class="card-title small font-weight-bold"><%= item.name %></p>
+                <p class="card-text small text-right"><%= item.price.to_s(:delimited) %> 円</p>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
 
-      <div class="mb-5 p-3 text-right">
+      <div class="my-3 p-3 text-right">
         <%= link_to "すべての商品を見る >>", items_path, class: "btn btn-light btn-sm bg-gold w-25" %>
       </div>
 
