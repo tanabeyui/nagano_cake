@@ -6,7 +6,6 @@ class Admin::GenresController < ApplicationController
   end
 
   def create
-    @genres = Genre.all
     @genre = Genre.new(genre_params)
     if @genre.save
       flash[:success] = "新しいジャンルを追加しました！"

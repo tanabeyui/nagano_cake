@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about', as: 'about'
-  get '/items' => 'public/items#index'
-  get '/items/:id' => 'public/items#show', as: 'customers_item'
 
   get '/customers' => 'public/customers#show'
   get '/customers/information/edit' => 'public/customers#edit'
@@ -11,6 +9,11 @@ Rails.application.routes.draw do
   get '/customers/confirm' => 'public/customers#confirm'
   patch '/customers' => 'public/customers#unsubscribe', as: 'customers_unsubscribe'
 
+
+  scope module: :public do
+    resources :addresses, only: [:create, :index, :edit, :update, :destroy]
+    resources :items, only: [:index, :show]
+  end
 
   namespace :admin do
     root to: 'homes#top'
