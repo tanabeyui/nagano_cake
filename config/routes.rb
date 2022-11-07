@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about', as: 'about'
+  get '/items' => 'public/items#index'
+  get '/items/:id' => 'public/items#show', as: 'customers_item'
+
   get '/customers' => 'public/customers#show'
   get '/customers/information/edit' => 'public/customers#edit'
   patch '/customers/information/' => 'public/customers#update'

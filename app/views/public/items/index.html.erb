@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <%= render 'public/shared/genrebar', genres: @genres %>
+
+    <div class="col-md-10 bg-img-half py-4">
+
+      <div class="w-25">
+        <h1 class="text-gold px-3">Lineup</h1>
+        <hr class="menu-line border-dark mt-n4 ml-n3"></hr>
+        <p class="small font-weight-bold">（全 <%= @items.on_sale.count %> 件）</p>
+      </div>
+
+      <div class="row d-flex justify-content-start">
+        <% @items.each do |item| %>
+
+          <div class="col-sm-3 card border-0 bg-transparent p-2 mb-4">
+            <%= image_tag item.get_image(250,175), class: "card-img-top" %>
+
+            <div class="card-body p-3">
+              <%= link_to customers_item_path(item), class: "btn-light" do %>
+                <p class="card-title small font-weight-bold"><%= item.name %></p>
+                <p class="card-text small text-right"><%= item.price.to_s(:delimited) %> 円</p>
+              <% end %>
+            </div>
+
+            <div class="card-footer bg-dark_red text-center py-2">
+              <%= link_to "More Detail...", customers_item_path(item), class: "text-white" %>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row justify-content-center">
+        <%= paginate @items %>
+      </div>
+
+    </div>
+  </div>
+</div>

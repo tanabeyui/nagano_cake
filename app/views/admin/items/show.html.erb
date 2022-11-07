@@ -1,10 +1,12 @@
+<%= render 'layouts/alert' %>
+
 <div class="container py-5">
   <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>商品詳細</strong></h5>
 
   <div class="row justify-content-center py-5">
 
-    <div class="col-lg-4 text-center pb-3">
-      <%= image_tag @item.get_image(350,245), class: "img-thumbnail" %>
+    <div class="col-lg-4 pb-3">
+      <%= image_tag @item.get_image(350,245), class: "img-thumbnail mx-auto d-block" %>
     </div>
 
     <div class="col-lg-7">

@@ -1,70 +1,68 @@
+<%= render 'layouts/alert' %>
+
 <div class="container py-5">
-  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>会員情報編集</strong></h5>
+  <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>会員情報編集</strong></h5>
 
-  <div class="row bg-img mx-5 py-5">
-    <div class="col-md-11 mx-auto">
+  <div class="bg-img mx-5 p-5">
+    <%= form_with model: @customer, url: customers_information_path, method: :patch do |f| %>
 
-      <%= form_with model: @customer, url: customers_information_path, method: :patch do |f| %>
-
-        <div class="form-group row">
-          <%= f.label :"名前", class: "col-md-2 col-form-label font-weight-bold" %>
-          <div class="col-md-4">
-            <%= f.text_field :first_name, class: "form-control", placeholder: "令和" %>
-          </div>
-          <div class="col-md-4">
-            <%= f.text_field :last_name, class: "form-control",  placeholder: "道子" %>
-          </div>
+      <div class="form-group row">
+        <%= f.label :"名前", class: "col-md-2 col-form-label font-weight-bold" %>
+        <div class="col-md-4">
+          <%= f.text_field :first_name, class: "form-control" %>
         </div>
-
-        <div class="form-group row">
-          <%= f.label :"フリガナ", class: "col-md-2 col-form-label font-weight-bold" %>
-          <div class="col-md-4">
-            <%= f.text_field :first_name_kana, class: "form-control", placeholder: "レイワ" %>
-          </div>
-          <div class="col-md-4">
-            <%= f.text_field :last_name_kana, class: "form-control",  placeholder: "ミチコ" %>
-          </div>
+        <div class="col-md-4">
+          <%= f.text_field :last_name, class: "form-control" %>
         </div>
+      </div>
 
-        <div class="form-group row">
-          <%= f.label :"郵便番号", class: "col-md-2 col-form-label font-weight-bold" %>
-          <div class="col-md-4">
-            <%= f.text_field :postal_code, class: "form-control", placeholder:"0000000" %>
-          </div>
+      <div class="form-group row">
+        <%= f.label :"フリガナ", class: "col-md-2 col-form-label font-weight-bold" %>
+        <div class="col-md-4">
+          <%= f.text_field :first_name_kana, class: "form-control" %>
         </div>
-
-        <div class="form-group row">
-          <%= f.label :"住所", class: "col-sm-2 col-form-label font-weight-bold" %>
-          <div class="col-md-9">
-            <%= f.text_field :address, class: "form-control", placeholder:"" %>
-          </div>
+        <div class="col-md-4">
+          <%= f.text_field :last_name_kana, class: "form-control" %>
         </div>
+      </div>
 
-        <div class="form-group row">
-          <%= f.label :"電話番号", class: "col-md-2 col-form-label font-weight-bold" %>
-          <div class="col-md-4">
-            <%= f.text_field :telephone_number, class: "form-control", placeholder:"00000000000" %>
-          </div>
+      <div class="form-group row">
+        <%= f.label :"郵便番号", class: "col-md-2 col-form-label font-weight-bold" %>
+        <div class="col-md-4">
+          <%= f.text_field :postal_code, class: "form-control" %>
         </div>
+      </div>
 
-        <div class="form-group row">
-          <%= f.label :"メールアドレス", class: "col-md-2 col-form-label font-weight-bold" %>
-          <div class="col-md-4">
-            <%= f.text_field :email, class: "form-control", placeholder:"sample@example.com" %>
-          </div>
+      <div class="form-group row">
+        <%= f.label :"住所", class: "col-md-2 col-form-label font-weight-bold" %>
+        <div class="col-md-9">
+          <%= f.text_field :address, class: "form-control" %>
         </div>
+      </div>
 
-        <div class="actions row justify-content-center pt-4">
-          <div class="col-md-4">
-            <%= f.submit "編集内容を保存", class: "btn btn-light bg-gold btn-block" %>
-          </div>
-          <div class="col-md-4">
-            <%= link_to "退会する", customers_confirm_path, class: "btn btn-danger btn-block" %>
-          </div>
+      <div class="form-group row">
+        <%= f.label :"電話番号", class: "col-md-2 col-form-label font-weight-bold" %>
+        <div class="col-md-4">
+          <%= f.text_field :telephone_number, class: "form-control" %>
         </div>
-      <% end %>
+      </div>
 
-    </div>
+      <div class="form-group row">
+        <%= f.label :"メールアドレス", class: "col-md-2 col-form-label font-weight-bold" %>
+        <div class="col-md-4">
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="actions row justify-content-center pt-4">
+        <div class="col-md-4">
+          <%= f.submit "編集内容を保存", class: "btn btn-light bg-gold btn-block" %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to "退会する", customers_confirm_path, class: "btn btn-danger btn-block" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
 </div>

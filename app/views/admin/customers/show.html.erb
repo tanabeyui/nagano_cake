@@ -1,55 +1,53 @@
+<%= render 'layouts/alert' %>
+
 <div class="container py-5">
   <h5 class="d-inline py-2 px-5 bg-dark text-white">
     <strong><%= @customer.first_name %> <%= @customer.last_name %>さん の 会員詳細</strong>
   </h5>
 
-  <div class="row">
-    <div class="col-lg-9 mx-auto">
-      <table class="table table-borderless my-5">
-        <tbody>
-           <tr>
-            <th>会員ID</th>
-            <td><%= @customer.id %></td>
-          </tr>
-          <tr>
-            <th>氏名</th>
-            <td class="w-75"><%= @customer.first_name %> <%= @customer.last_name %></td>
-          </tr>
-          <tr>
-            <th>フリガナ</th>
-            <td class="w-75"><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
-          </tr>
-          <tr>
-            <th>郵便番号</th>
-            <td class="w-75"><%= @customer.postal_code %></td>
-          </tr>
-          <tr>
-            <th>住所</th>
-            <td class="w-75"><%= @customer.address %></td>
-          </tr>
-          <tr>
-            <th>電話番号</th>
-            <td class="w-75"><%= @customer.telephone_number %></td>
-          </tr>
-          <tr>
-            <th>メールアドレス</th>
-            <td class="w-75"><%= @customer.email %></td>
-          </tr>
-          <tr>
-            <th>会員ステータス</th>
-            <td class="w-75 font-weight-bold">
-              <% if @customer.is_deleted == "membership" %>
-                <span class="text-success"><%= @customer.is_deleted_i18n %></span>
-              <% else %>
-                <span class="text-black-50"><%= @customer.is_deleted_i18n %></span>
-              <% end %>
-              </td>
-          </tr>
-        </tbody>
-      </table>
+  <table class="table table-borderless w-75 mx-auto my-5">
+    <tbody>
+      <tr>
+        <th>会員ID</th>
+        <td><%= @customer.id %></td>
+      </tr>
+      <tr>
+        <th>氏名</th>
+        <td class="w-75"><%= @customer.first_name %> <%= @customer.last_name %></td>
+      </tr>
+      <tr>
+        <th>フリガナ</th>
+        <td class="w-75"><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td class="w-75"><%= @customer.postal_code %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td class="w-75"><%= @customer.address %></td>
+        </tr>
+      <tr>
+        <th>電話番号</th>
+        <td class="w-75"><%= @customer.telephone_number %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td class="w-75"><%= @customer.email %></td>
+      </tr>
+      <tr>
+        <th>会員ステータス</th>
+        <td class="w-75 font-weight-bold">
+          <% if @customer.is_deleted == "membership" %>
+            <span class="text-success"><%= @customer.is_deleted_i18n %></span>
+          <% else %>
+            <span class="text-black-50"><%= @customer.is_deleted_i18n %></span>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-      <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-light bg-gold btn-block" %>
-    </div>
+  <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-light bg-gold btn-block w-75 mx-auto" %>
 
-  </div>
 </div>

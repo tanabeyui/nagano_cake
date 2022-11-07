@@ -1,45 +1,41 @@
 <div class="container py-5">
   <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>会員一覧</strong></h5>
 
-  <div class="row">
-    <div class="col-xl-10 mx-auto my-4">
-      <table class="table table-bordered">
-          <thead class="text-center table-active">
-            <tr>
-              <th>会員ID</th>
-              <th class="w-50">氏名</th>
-              <th class="w-25">メールアドレス</th>
-              <th>ステータス</th>
-            </tr>
-          </thead>
+  <table class="table table-bordered my-4">
+    <thead class="text-center table-active">
+      <tr>
+        <th>会員ID</th>
+        <th class="w-50">氏名</th>
+        <th class="">メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
 
-          <tbody>
-            <% @customers.each do |customer| %>
-            <tr>
-              <td class="text-center">
-                <%= customer.id %>
-              </td>
-              <td class="px-4">
-                <%= link_to admin_customer_path(customer), class:"text-danger" do%>
-                  <%= customer.first_name %> <%= customer.last_name %>
-                <% end %>
-              </td>
-              <td>
-                <%= customer.email %>
-              </td>
-              <td class="text-center font-weight-bold">
-                <% if customer.is_deleted == "membership" %>
-                  <span class="text-success"><%= customer.is_deleted_i18n %></span>
-                <% else %>
-                  <span class="text-black-50"><%= customer.is_deleted_i18n %></span>
-                <% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-    </div>
-  </div>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td class="text-center">
+          <%= customer.id %>
+        </td>
+        <td class="px-4">
+          <%= link_to admin_customer_path(customer), class:"text-danger" do%>
+            <%= customer.first_name %> <%= customer.last_name %>
+          <% end %>
+        </td>
+        <td>
+          <%= customer.email %>
+        </td>
+        <td class="text-center font-weight-bold">
+          <% if customer.is_deleted == "membership" %>
+            <span class="text-success"><%= customer.is_deleted_i18n %></span>
+          <% else %>
+            <span class="text-black-50"><%= customer.is_deleted_i18n %></span>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
   <div class="row justify-content-center">
     <%= paginate @customers %>

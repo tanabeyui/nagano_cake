@@ -88,11 +88,6 @@
     </header>
 
     <main class="mb-5 pb-5">
-      <% flash.each do |message_type, message| %>
-        <div class="w-75 mx-auto mb-n1 alert alert-<%= message_type %>">
-          <%= message %>
-        </div>
-      <% end %>
       <%= yield %>
     </main>
 
