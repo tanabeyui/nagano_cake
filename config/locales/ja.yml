@@ -9,3 +9,8 @@ ja:
         is_deleted:
           unsubscribe: "退会"
           membership: "有効"
+
+      order:
+        payment_method:
+          credit_card: "クレジットカード"
+          transfer: "銀行振込"

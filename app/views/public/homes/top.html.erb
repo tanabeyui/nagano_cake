@@ -3,12 +3,11 @@
     <%= render 'public/shared/genrebar', genres: @genres %>
 
     <div class="col-md-10 bg-img">
-
-      <div class="row">
-        <div class="col-3">
-          <div class="row bg-white p-2">
-            <h1 class="text-gold text-nowrap py-4">ようこそ、ながのＣＡＫＥへ</h1>
-            <p class="small">
+      <div class="row position-relative">
+        <h1 class="text-gold position-absolute py-4">ようこそ、ながのＣＡＫＥへ</h1>
+        <div class="col-3 p-0">
+          <div class="bg-white pt-5">
+            <p class="small pt-5 pb-4">
               このサイトは<br>
               ケーキ販売ECサイトになります。<br>
               <br>
@@ -26,22 +25,26 @@
         <hr class="menu-line border-dark mt-n4 ml-n3"></hr>
       </div>
 
-      <div class="row d-flex justify-content-center">
+      <div class="row d-flex justify-content-center mx-3">
         <% @items.each do |item| %>
-          <div class="card mx-2 p-1" style="width: 13rem;">
-            <%= link_to item_path(item), class: "text-dark text-decoration-none" do %>
-              <%= image_tag item.get_image(250,175), class: "card-img-top" %>
-              <div class="card-body p-2">
-                <p class="card-title small font-weight-bold"><%= item.name %></p>
-                <p class="card-text small text-right"><%= item.price.to_s(:delimited) %> 円</p>
-              </div>
-            <% end %>
+          <div class="col-md-3 col-sm-6 p-2">
+            <div class="card shadow h-100">
+              <%= link_to item_path(item), class: "text-dark text-decoration-none" do %>
+                <%= image_tag item.get_image(250,175), class: "card-img-top" %>
+                <div class="card-body p-2">
+                  <p class="card-title small font-weight-bold"><%= item.name %></p>
+                  <p class="card-text small text-right"><%= item.price.to_s(:delimited) %> 円</p>
+                </div>
+              <% end %>
+            </div>
           </div>
         <% end %>
       </div>
 
-      <div class="my-3 p-3 text-right">
-        <%= link_to "すべての商品を見る >>", items_path, class: "btn btn-light btn-sm bg-gold w-25" %>
+      <div class="my-3 text-right">
+        <%= link_to items_path, class: "btn btn-light btn-sm bg-gold px-5" do %>
+          すべての商品を見る <i class="fa-solid fa-angles-right"></i>
+        <% end %>
       </div>
 
     </div>
