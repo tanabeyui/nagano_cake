@@ -10,10 +10,9 @@ Rails.application.routes.draw do
   patch '/customers' => 'public/customers#unsubscribe', as: 'customers_unsubscribe'
 
   delete '/cart_items' => 'public/cart_items#destroy_all'
-  
-  post '/orders/confirm'
-  get '/orders/finished'
 
+  post '/orders/confirm' => 'public/orders#confirm'
+  get '/orders/finished' => 'public/orders#finished'
 
   scope module: :public do
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
