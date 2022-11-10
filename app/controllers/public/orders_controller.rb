@@ -57,6 +57,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @customer = current_customer
+    @order = Order.find(params[:id])
+    @total = 0
+    @order.order_details.each do |order_detail|
+      order_detail.subtotal
+      @total += order_detail.subtotal
+    end
   end
 
   private

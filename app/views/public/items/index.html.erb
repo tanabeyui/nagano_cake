@@ -14,7 +14,7 @@
         <% @items.each do |item| %>
 
           <div class="col-sm-3 px-1 pb-5">
-            <div class="card shadow h-100">
+            <div class="card shadow h-100 ">
               <%= link_to item_path(item), class: "text-dark text-decoration-none" do %>
                 <%= image_tag item.get_image(250,175), class: "card-img-top" %>
                 <div class="card-body p-2">
