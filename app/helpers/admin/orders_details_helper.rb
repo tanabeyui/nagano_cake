@@ -1,2 +1,0 @@
-module Admin::OrdersDetailsHelper
-end

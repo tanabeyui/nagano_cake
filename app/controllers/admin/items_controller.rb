@@ -31,14 +31,7 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @genres = Genre.all
-    @item = Item.find(params[:id])
-    if @item.update(item_params)
-      flash[:success] = "商品情報を変更しました！"
-      redirect_to admin_item_path(@item)
-    else
-      flash[:danger] = "未入力の項目があります！"
-      render :edit
-    end
+    
   end
 
 

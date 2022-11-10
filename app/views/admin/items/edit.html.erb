@@ -30,7 +30,7 @@
       <div class="form-group row">
         <%= f.label :"ジャンル", class: "col-md-3", for: "item_genre" %>
         <div class="col-md-8">
-          <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] },{ include_blank: "--選択してください--" }, { id: "item_genre", class: "form-control" } %>
+          <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] },{}, { id: "item_genre", class: "form-control" } %>
         </div>
       </div>
 

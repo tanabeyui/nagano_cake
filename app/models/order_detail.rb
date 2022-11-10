@@ -3,16 +3,10 @@ class OrderDetail < ApplicationRecord
   belongs_to :order
   belongs_to :item
 
+  enum making_status: { cannot_start: 0, waiting_making: 1, making: 2, finish_making: 3 }
+
   def subtotal
     item.add_tax_price * amount
-  end
-  
-  def total_price
-    total = 0
-    order_details.each do |order_detail|
-      order_detail.subtotal
-      total += order_detail.subtotal
-    end
   end
 
 end

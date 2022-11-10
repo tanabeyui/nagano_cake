@@ -1,43 +1,49 @@
 <div class="container py-5">
-  <h5 class="d-inline p-2 px-5 bg-dark text-white"><strong>注文履歴一覧</strong></h5>
+  <h5 class="mb-5">
+    <span class="bg-dark text-white py-2 px-5 font-weight-bold">
+      注文履歴一覧
+    </span>
+  </h5>
 
-  <div class="row justify-content-center py-5">
-
-    <div class="col-xl-11">
-      <table class="table table-bordered">
-          <thead class="text-center table-active">
-            <tr>
-              <th class="px-4 w-50">購入日時</th>
-              <th class="px-4">購入者</th>
-              <th class="px-4">注文個数</th>
-              <th class="px-4">注文ステータス</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @orders.each do |order| %>
-            <tr>
-              <td class="text-center">
-                <%= link_to admin_order_path(order), class:"text-danger" do%>
-                  <%= order.created_at %>
-                <% end %>
-              </td>
-              <td class="px-4">
-                <%= order.customer.first_name %> <%= order.customer.last_name %>
-              </td>
-              <td>
-                <%= order.payment_price %>
-              </td>
-              <td class="text-center">
-                <%= order.order_status_i18n %>
-              </td>
-            </tr>
+  <table class="table table-bordered mx-auto">
+    <thead class="text-center table-active">
+      <tr>
+        <th class="w-25">購入日時</th>
+        <th class="w-50">購入者</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td class="text-center">
+            <%= link_to admin_order_path(order), class:"text-danger" do%>
+              <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
             <% end %>
-          </tbody>
-        </table>
-    </div>
-
-  </div>
+          </td>
+          <td class="px-4">
+            <%= order.customer.first_name %> <%= order.customer.last_name %>
+          </td>
+          <td class="text-right">
+            <% order.order_details.each do |order_detail| %>
+              <% @total_amounts += order_detail.amount %>
+            <% end %>
+            <%= @total_amounts %>
+          </td>
+          <td class="text-center">
+            <% if order.order_status == "wait_payment" %>
+              <span class="font-weight-bold text-danger pt-1"><%= order.order_status_i18n %></span>
+            <% elsif order.order_status == "finish_prepare" %>
+              <span class="font-weight-bold pt-1"><%= order.order_status_i18n %></span>
+            <% else %>
+              <span class="font-weight-bold text-success pt-1"><%= order.order_status_i18n %></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
   <div class="row justify-content-center">
     <%= paginate @orders %>
