@@ -1,2 +1,59 @@
-<h1>Public::Orders#index</h1>
-<p>Find me in app/views/public/orders/index.html.erb</p>
+<div class="container py-5">
+  <h5 class="d-inline py-2 px-5 bg-dark text-white">
+    <strong>注文履歴一覧</strong>
+  </h5>
+
+  <% @orders.each do |order| %>
+    <div class="border mx-5 mt-4">
+      <table class="table table-borderless m-0">
+        <thead class="table-active">
+          <tr>
+            <th class="align-top">
+              <small>注文日</small>
+              <h5><%= order.created_at.strftime('%Y/%m/%d') %></h5>
+            </th>
+            <th class="align-top">
+              <small>配送先</small>
+              <h6 class="pt-1">〒<%= order.postal_code %>　<%= order.address %>　<%= order.name %></h6>
+            </th>
+            <th class="align-top text-right w-25">
+              <small>注文状況</small>
+              <% if order.order_status == "wait_payment" %>
+                <h6 class="font-weight-bold text-danger pt-1"><%= order.order_status_i18n %></h6>
+              <% elsif order.order_status == "finish_prepare" %>
+                <h6 class="font-weight-bold pt-1"><%= order.order_status_i18n %></h6>
+              <% else %>
+                <h6 class="font-weight-bold text-success pt-1"><%= order.order_status_i18n %></h6>
+              <% end %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2" rowspan="2">
+              <% order.order_details.each do |order_detail| %>
+                <div class="p-1">
+                  <%= image_tag order_detail.item.get_image(70,50) %>　<%= order_detail.item.name %>
+                </div>
+              <% end %>
+            </td>
+            <td class="text-right">
+              <small>支払金額 :</small>
+              <span class="h4"><%= order.payment_price.to_s(:delimited) %> 円</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="align-bottom text-center">
+              <%= link_to "注文履歴詳細", order_path(order), class: "btn btn-sm btn-light bg-gold btn-block" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <div class="row justify-content-center">
+    <%= paginate @orders %>
+  </div>
+
+</div>
