@@ -20,7 +20,7 @@
               <small>注文状況</small>
               <% if order.order_status == "wait_payment" %>
                 <h6 class="font-weight-bold text-danger pt-1"><%= order.order_status_i18n %></h6>
-              <% elsif order.order_status == "finish_prepare" %>
+              <% elsif order.order_status == "shipping_finish" %>
                 <h6 class="font-weight-bold pt-1"><%= order.order_status_i18n %></h6>
               <% else %>
                 <h6 class="font-weight-bold text-success pt-1"><%= order.order_status_i18n %></h6>

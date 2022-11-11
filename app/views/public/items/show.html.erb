@@ -19,15 +19,17 @@
             </h4>
           </div>
 
-          <%= form_with model: @cart_item, url: cart_items_path, method: :post, class: "form-inline flex-shrink-1" do |f| %>
-            <div class="form-group my-auto ml-auto">
-              <%= f.hidden_field :item_id, :value => @item.id %>
-              <%= f.select :amount, *[1..10] , { include_blank: "個数選択" }, { class: "form-control" } %>
-            </div>
-            <div class="mx-1">
-              <%= f.submit 'カートに入れる', class:"btn btn-light bg-gold btn-block" %>
-            </div>
-            </div>
+          <% if customer_signed_in? %>
+            <%= form_with model: @cart_item, url: cart_items_path, method: :post, class: "form-inline flex-shrink-1" do |f| %>
+              <div class="form-group my-auto ml-auto">
+                <%= f.hidden_field :item_id, :value => @item.id %>
+                <%= f.select :amount, *[1..10] , { include_blank: "個数選択" }, { class: "form-control" } %>
+              </div>
+              <div class="mx-1">
+                <%= f.submit 'カートに入れる', class:"btn btn-light bg-gold btn-block" %>
+              </div>
+              </div>
+            <% end %>
           <% end %>
         </div>
 

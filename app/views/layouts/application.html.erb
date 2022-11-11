@@ -20,7 +20,6 @@
 
   <body>
     <header class="border-bottom">
-
       <div class="container mt-2">
         <div class="row">
 
@@ -30,57 +29,97 @@
             <% end %>
           </div>
 
-
           <div class="col-4 col-md-7">
-
             <div class="row">
-              <nav class="navbar navbar-expand-md navbar-light p-0 ml-auto">
-                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <nav class="navbar navbar-expand-md navbar-light ml-auto px-0">
+                <button class="navbar-toggler ml-auto mt-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <% if customer_signed_in? %>
+                  <span class="ml-auto mt-2">ようこそ、<%= current_customer.first_name %>さん！</span>
+                <% end %>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav text-center">
-                    <li  class="nav-item pl-4">
-                      <%= link_to about_path, class: "nav-link btn-light border-right border-left" do %>
-                        <i class="fa-solid fa-circle-question"></i> About
-                      <% end %>
-                    </li>
-                    <li  class="nav-item pl-4">
-                      <%= link_to admin_items_path, class: "nav-link btn-light border-right border-left" do %>
-                        <i class="fa-solid fa-cake-candles"></i> Lineup
-                      <% end %>
-                    </li>
-                    <li  class="nav-item pl-4">
-                      <%= link_to admin_genres_path, class: "nav-link btn-light border-right border-left" do %>
-                        <i class="fas fa-user-plus"></i> Sign in
-                      <% end %>
-                    </li>
-                    <li  class="nav-item pl-4">
-                      <%= link_to admin_genres_path, class: "nav-link btn-light border-right border-left" do %>
-                        <i class="fa-solid fa-right-to-bracket"></i> Log in
-                      <% end %>
-                    </li>
                     <% if customer_signed_in? %>
-                      <li  class="nav-item pl-4">
+                      <li class="nav-item pl-3">
+                        <%= link_to customers_path, class: "nav-link btn-light border-right border-left" do%>
+                          <i class="fa-solid fa-user"></i> Mypage
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to items_path, class: "nav-link btn-light border-right border-left" do %>
+                          <i class="fa-solid fa-cake-candles"></i> Lineup
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to about_path, class: "nav-link btn-light border-right border-left" do%>
+                          <i class="fa-solid fa-cart-shopping"></i> Cart
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
                         <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link btn-light border-right border-left" do%>
                           <i class="fas fa-sign-out-alt"></i> Log out
+                        <% end %>
+                      </li>
+                    <% elsif admin_signed_in? %>
+                      <li class="nav-item pl-3">
+                        <%= link_to admin_items_path, class: "nav-link btn-light border-right border-left" do %>
+                          商品一覧
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to admin_customers_path, class: "nav-link btn-light border-right border-left" do %>
+                          会員一覧
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to admin_path, class: "nav-link btn-light border-right border-left" do %>
+                          注文履歴一覧
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to admin_genres_path, class: "nav-link btn-light border-right border-left" do %>
+                          ジャンル一覧
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link btn-light border-right border-left" do%>
+                          ログアウト
+                        <% end %>
+                      </li>
+                    <% else %>
+                      <li class="nav-item pl-3">
+                        <%= link_to about_path, class: "nav-link btn-light border-right border-left" do %>
+                          <i class="fa-solid fa-circle-question"></i> About
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to items_path, class: "nav-link btn-light border-right border-left" do %>
+                          <i class="fa-solid fa-cake-candles"></i> Lineup
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to new_customer_registration_path, class: "nav-link btn-light border-right border-left" do %>
+                          <i class="fas fa-user-plus"></i> Sign up
+                        <% end %>
+                      </li>
+                      <li class="nav-item pl-3">
+                        <%= link_to new_customer_session_path, class: "nav-link btn-light border-right border-left" do %>
+                          <i class="fa-solid fa-right-to-bracket"></i> Log in
                         <% end %>
                       </li>
                     <% end %>
                   </ul>
                 </div>
-
               </nav>
             </div>
 
-            <div class="row pt-3">
+            <div class="row pt-2 pb-3">
               <form class="d-flex ml-auto" role="search">
                 <input type="text" class="form-control bg-gold" placeholder="search" aria-label="検索...">
                 <button type="submit" class="btn btn-dark flex-shrink-0"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
-
           </div>
 
         </div>
@@ -91,14 +130,11 @@
       <%= yield %>
     </main>
 
-
-
     <footer class="bg-dark_red fixed-bottom">
       <div class="container text-white text-center p-4">
         <p class="m-0 p-3">CopyRight Infratop.inc</p>
       </div>
     </footer>
-
 
   </body>
 </html>

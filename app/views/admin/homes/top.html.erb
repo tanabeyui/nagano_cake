@@ -34,7 +34,7 @@
           <td class="text-center">
             <% if order.order_status == "wait_payment" %>
               <span class="font-weight-bold text-danger pt-1"><%= order.order_status_i18n %></span>
-            <% elsif order.order_status == "finish_prepare" %>
+            <% elsif order.order_status == "shipping_finish" %>
               <span class="font-weight-bold pt-1"><%= order.order_status_i18n %></span>
             <% else %>
               <span class="font-weight-bold text-success pt-1"><%= order.order_status_i18n %></span>

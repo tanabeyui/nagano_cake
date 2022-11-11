@@ -1,7 +1,9 @@
 class Public::CartItemsController < ApplicationController
+
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
+
     now_cart_item = current_customer.cart_items.find_by(item_id: @cart_item.item_id)
     if params[:cart_item][:amount] == ""
       @genres = Genre.all
@@ -10,6 +12,7 @@ class Public::CartItemsController < ApplicationController
       render 'public/items/show'
       return 0
     end
+
     if now_cart_item
       now_cart_item.update(amount: now_cart_item.amount + @cart_item.amount.to_i)
       redirect_to cart_items_path
@@ -18,6 +21,7 @@ class Public::CartItemsController < ApplicationController
       redirect_to cart_items_path
     end
   end
+
 
   def index
     @customer = current_customer
@@ -44,6 +48,8 @@ class Public::CartItemsController < ApplicationController
     current_customer.cart_items.destroy_all
     redirect_to cart_items_path
   end
+
+
 
   private
   def cart_item_params

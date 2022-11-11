@@ -42,7 +42,6 @@
             <td class="py-2">
               <%= form_with model: @order, url: admin_order_path(@order), method: :patch, class: "form-inline" do |f| %>
                 <div class="form-group">
-                  <!--% f.select :order_status, [["入金待ち", "0"], ["入金確認", "1"], ["製作中", "2"], ["発送準備中", "4"], ["発送済み", "5"]], {}, { class: "form-control" } %>-->
                   <%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]}, {}, { class: "form-control" } %>
                 </div>
                 <%= f.submit '更新', class:"btn btn-light bg-gold" %>

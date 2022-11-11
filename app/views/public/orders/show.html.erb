@@ -9,7 +9,7 @@
     <h6>
       <% if @order.order_status == "wait_payment" %>
         <span class="bg-danger text-white rounded-top px-3 py-2"><%= @order.order_status_i18n %></span>
-      <% elsif @order.order_status == "finish_prepare" %>
+      <% elsif @order.order_status == "shipping_finish" %>
         <span class="bg-secondary text-white rounded-top px-3 py-2"><%= @order.order_status_i18n %></span>
       <% else %>
         <span class="bg-success text-white rounded-top px-3 py-2"><%= @order.order_status_i18n %></span>

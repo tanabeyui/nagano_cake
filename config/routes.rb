@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'public/homes#top'
+  get '/admin' => 'admin/homes#top', as: 'admin'
   get '/about' => 'public/homes#about', as: 'about'
 
   get '/customers' => 'public/customers#show'
@@ -17,12 +18,11 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:create, :index, :update, :destroy]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :orders, only: [:new, :create, :index, :show]
   end
 
   namespace :admin do
-    root to: 'homes#top'
     resources :homes, only: [:top]
     resources :genres, only: [:create, :index, :edit, :update]
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
   end
+
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
