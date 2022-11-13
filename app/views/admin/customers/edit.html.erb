@@ -66,12 +66,12 @@
       <div class="form-group row">
         <%= f.label :"会員ステータス", class: "col-sm-3 col-form-label" %>
           <div class="form-check form-check-inline">
-          <%= f.radio_button :is_deleted, :membership, id: "item_on_sale" %>
-          <%= f.label :"有効", class: "form-check-label px-2", for: "item_on_sale" %>
+          <%= f.radio_button :is_deleted, :membership, id: "customer_membership" %>
+          <%= f.label :"有効", class: "form-check-label px-2", for: "customer_membership" %>
         </div>
         <div class="form-check form-check-inline">
-          <%= f.radio_button :is_deleted, :unsubscribe, id: "item_stop_sell" %>
-          <%= f.label :"退会", class: "form-check-label px-2", for: "item_stop_sell" %>
+          <%= f.radio_button :is_deleted, :unsubscribe, id: "customer_unsubscribe" %>
+          <%= f.label :"退会", class: "form-check-label px-2", for: "customer_unsubscribe" %>
         </div>
       </div>
 

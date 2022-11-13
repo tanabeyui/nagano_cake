@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   has_many :order_details, dependent: :destroy
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :introduction
     validates :genre_id

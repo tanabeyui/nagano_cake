@@ -47,12 +47,12 @@
       <div class="form-group row">
         <%= f.label :"販売ステータス", class: "col-md-3 col-form-label" %>
         <div class="form-check form-check-inline">
-          <%= f.radio_button :is_active, Item.is_actives.key(true) %>
-          <%= f.label :is_active, Item.is_actives_i18n[:on_sale], class: "form-check-label px-2" %>
+          <%= f.radio_button :is_active, Item.is_actives.key(true), id: "item_on_sale" %>
+          <%= f.label :is_active, Item.is_actives_i18n[:on_sale], class: "form-check-label px-2", for: "item_on_sale"  %>
         </div>
         <div class="form-check form-check-inline">
-          <%= f.radio_button :is_active, Item.is_actives.key(false) %>
-          <%= f.label :is_active, Item.is_actives_i18n[:stop_sell], class: "form-check-label px-2" %>
+          <%= f.radio_button :is_active, Item.is_actives.key(false), id: "item_stop_sell"  %>
+          <%= f.label :is_active, Item.is_actives_i18n[:stop_sell], class: "form-check-label px-2", for: "item_stop_sell" %>
         </div>
       </div>
 

@@ -50,3 +50,17 @@ h1, h2 {
 .text-gold {
   color: #c1ab05;
 }
+
+
+.pagination>li>a {
+  border: none;
+  color: #343a40;
+}
+
+.pagination>.active>a {
+  background: #343a40 !important;     /*背景の色を変える*/
+}
+
+.pagination>li>a:hover {
+  color: #343a40;
+}
