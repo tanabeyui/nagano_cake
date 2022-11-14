@@ -1,5 +1,16 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :access_restrictions, only: [:new, :confirm, :finished]
+
+  def index
+    @customer = current_customer
+    @orders = @customer.orders.page(params[:page])
+  end
+
+  def show
+    @customer = current_customer
+    @order = Order.find(params[:id])
+  end
 
   def new
     @order = Order.new
@@ -12,8 +23,9 @@ class Public::OrdersController < ApplicationController
     @customer = current_customer
     @addresses = @customer.addresses.all
     @cart_items = @customer.cart_items.all
-    @total = 0
     @order.postage = 800
+    @total = CartItem.items_total(@cart_items) + @order.postage
+
     if params[:order][:select_address] == "1"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
@@ -30,6 +42,7 @@ class Public::OrdersController < ApplicationController
     else
       render :new
     end
+
   end
 
   def create
@@ -52,23 +65,16 @@ class Public::OrdersController < ApplicationController
   def finished
   end
 
-  def index
-    @customer = current_customer
-    @orders = @customer.orders.page(params[:page])
-  end
 
-  def show
-    @customer = current_customer
-    @order = Order.find(params[:id])
-    @total = 0
-    @order.order_details.each do |order_detail|
-      order_detail.subtotal
-      @total += order_detail.subtotal
-    end
-  end
 
   private
   def order_params
     params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage, :payment_price)
+  end
+
+  def access_restrictions
+    if request.referer == nil
+      redirect_to root_path
+    end
   end
 end

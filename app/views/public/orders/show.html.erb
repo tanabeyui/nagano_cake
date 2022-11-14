@@ -33,7 +33,7 @@
         <strong>請求情報</strong>
         <div class="d-flex justify-content-between">
           <div>商品合計 : </div>
-          <div class="text-right"><%= @total.to_s(:delimited) %> 円</div>
+          <div class="text-right"><%= @order.items_total.to_s(:delimited) %> 円</div>
         </div>
         <div class="d-flex justify-content-between flex-grow-1">
           <div>配送料 :</div>
