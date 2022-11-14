@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   get '/admin' => 'admin/homes#top', as: 'admin'
   get '/about' => 'public/homes#about', as: 'about'
+  get "/search" => "public/items#search"
 
   get '/customers' => 'public/customers#show'
   get '/customers/information/edit' => 'public/customers#edit'

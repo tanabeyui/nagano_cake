@@ -117,11 +117,11 @@
               </nav>
             </div>
 
-            <div class="row pt-2 pb-3">
-              <form class="d-flex ml-auto" role="search">
-                <input type="text" class="form-control bg-gold" placeholder="search" aria-label="検索...">
-                <button type="submit" class="btn btn-dark flex-shrink-0"><i class="fa-solid fa-magnifying-glass"></i></button>
-              </form>
+            <div class="row justify-content-end pt-2 pb-3">
+              <%= form_with url: search_path, method: :get, class: "d-flex" do |f| %>
+                <%= f.text_field :keyword, value: @keyword, class:"search form-control bg-gold w-100", placeholder: "search" %>
+                <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit", :class =>"btn btn-dark flex-shrink-1" %>
+              <% end %>
             </div>
           </div>
 

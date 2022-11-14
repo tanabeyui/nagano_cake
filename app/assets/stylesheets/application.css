@@ -64,3 +64,7 @@ h1, h2 {
 .pagination>li>a:hover {
   color: #343a40;
 }
+
+.search::placeholder {
+  color: #343a40;
+}
