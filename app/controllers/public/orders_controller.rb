@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :access_restrictions, only: [:new, :confirm, :finished]
 
   def index
     @customer = current_customer

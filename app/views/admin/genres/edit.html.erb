@@ -1,7 +1,11 @@
 <%= render 'layouts/alert' %>
 
 <div class="container py-5">
-  <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>ジャンル編集</strong></h5>
+  <h5 class="mb-5">
+    <span class="bg-dark text-white py-2 px-5 font-weight-bold">
+      ジャンル編集
+    </span>
+  </h5>
 
   <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
     <div class="form-group row justify-content-center py-5">

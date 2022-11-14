@@ -1,5 +1,9 @@
 <div class="container py-5">
-  <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>ログイン</strong></h5>
+  <h5 class="mb-4">
+    <span class="bg-dark text-white py-2 px-5 font-weight-bold">
+      ログイン
+    </span>
+  </h5>
 
   <div class="bg-img mx-5 mb-5 p-5">
     <%= form_with model: @customer, url: customer_session_path, method: :post do |f| %>

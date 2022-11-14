@@ -1,10 +1,12 @@
 <%= render 'layouts/alert' %>
 
 <div class="container py-5">
-  <h5 class="d-inline py-2 px-5 bg-dark text-white">
-    <strong><i class="fa-solid fa-truck"></i> 配送先登録 / 一覧</strong>
+  <h5 class="mb-4">
+    <span class="bg-dark text-white py-2 px-5 font-weight-bold">
+      <i class="fa-solid fa-truck"></i> 配送先編集
+    </span>
   </h5>
-  
+
   <div class="bg-img mx-5 p-5">
     <%= form_with model: @address, url: address_path, method: :patch do |f| %>
 
@@ -34,5 +36,5 @@
       </div>
     <% end %>
   </div>
- 
+
  </div>

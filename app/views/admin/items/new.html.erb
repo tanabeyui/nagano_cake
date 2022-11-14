@@ -1,7 +1,11 @@
 <%= render 'layouts/alert' %>
 
 <div class="container py-5">
-  <h5 class="d-inline py-2 px-5 bg-dark text-white"><strong>商品新規登録</strong></h5>
+  <h5 class="mb-5">
+    <span class="bg-dark text-white py-2 px-5 font-weight-bold">
+      商品新規登録
+    </span>
+  </h5>
 
   <div class="w-75 mx-auto my-5">
     <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
