@@ -1,6 +1,5 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :access_restrictions, only: [:new, :confirm, :finished]
 
   def index
     @customer = current_customer
@@ -13,6 +12,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
+    @cart_items = current_customer.cart_items
+    if @cart_items.count == 0
+      redirect_to cart_items_path
+      return 0
+    end
     @order = Order.new
     @customer = current_customer
     @addresses = @customer.addresses.all

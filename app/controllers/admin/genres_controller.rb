@@ -12,6 +12,7 @@ class Admin::GenresController < ApplicationController
       flash[:success] = "新しいジャンルを追加しました！"
       redirect_to admin_genres_path
     else
+      @genres = Genre.all
       flash[:danger] = "ジャンル名を入力してください！"
       render :index
     end

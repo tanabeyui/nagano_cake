@@ -7,12 +7,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @genres = Genre.all
     @item = Item.new(item_params)
     if @item.save
       flash[:success] = "新しい商品を登録しました！"
       redirect_to admin_item_path(@item)
     else
+      @genres = Genre.all
       flash[:danger] = "未入力の項目があります！"
       render :new
     end
@@ -32,12 +32,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-    @genres = Genre.all
     @item = Item.find(params[:id])
     if @item.update(item_params)
       flash[:success] = "商品情報を変更しました！"
       redirect_to admin_item_path(@item)
     else
+      @genres = Genre.all
       flash[:danger] = "未入力の項目があります！"
       render :edit
     end
