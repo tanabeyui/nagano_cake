@@ -40,6 +40,7 @@
                 <% end %>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav text-center">
+
                     <% if customer_signed_in? %>
                       <li class="nav-item pl-3">
                         <%= link_to customers_path, class: "nav-link btn-light border-right border-left" do%>
@@ -52,7 +53,7 @@
                         <% end %>
                       </li>
                       <li class="nav-item pl-3">
-                        <%= link_to about_path, class: "nav-link btn-light border-right border-left" do%>
+                        <%= link_to cart_items_path, class: "nav-link btn-light border-right border-left" do%>
                           <i class="fa-solid fa-cart-shopping"></i> Cart
                         <% end %>
                       </li>
@@ -61,6 +62,7 @@
                           <i class="fas fa-sign-out-alt"></i> Log out
                         <% end %>
                       </li>
+
                     <% elsif admin_signed_in? %>
                       <li class="nav-item pl-3">
                         <%= link_to admin_items_path, class: "nav-link btn-light border-right border-left" do %>
@@ -87,6 +89,7 @@
                           ログアウト
                         <% end %>
                       </li>
+
                     <% else %>
                       <li class="nav-item pl-3">
                         <%= link_to about_path, class: "nav-link btn-light border-right border-left" do %>

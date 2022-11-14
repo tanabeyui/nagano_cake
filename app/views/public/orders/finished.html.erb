@@ -1,16 +1,16 @@
 <div class="container bg-img text-center py-5 px-0">
-  
+
   <h2 class="mt-5"><i class="fa-solid fa-cake-candles"></i></h2>
   <h1 class="text-danger">Thank You</h1>
   <h5 class="font-weight-bold text-muted">ご注文が完了しました！</h5>
   <p class="small py-4">
     発送までしばらくお待ちください．．．<i class="fa-solid fa-truck"></i>
   </p>
-  
+
   <div class="bg-gold w-50 p-4 mx-auto">
-    <%= link_to "ご注文内容のご確認はこちらから (マイページに移動します) ", new_order_path, class: "text-dark" %>
+    <%= link_to "ご注文内容のご確認はこちらから (マイページに移動します) ", orders_path, class: "text-dark" %>
   </div>
-  
+
   <%= image_tag 'thanks-01.jpg', class: "img-fluid mt-5" %>
 
 </div>

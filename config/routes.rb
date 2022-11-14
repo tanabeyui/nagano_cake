@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   get '/orders/finished' => 'public/orders#finished'
 
   scope module: :public do
+    resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :orders, only: [:new, :create, :index, :show]
   end
 

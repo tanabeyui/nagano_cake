@@ -58,7 +58,7 @@ h1, h2 {
 }
 
 .pagination>.active>a {
-  background: #343a40 !important;     /*背景の色を変える*/
+  background: #343a40 !important;
 }
 
 .pagination>li>a:hover {
