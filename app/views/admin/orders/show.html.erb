@@ -58,7 +58,7 @@
         <tbody>
           <tr>
             <th>商品合計</th>
-            <td class="text-right"><%= @total.to_s(:delimited) %> 円</td>
+            <td class="text-right"><%= @order.items_total.to_s(:delimited) %> 円</td>
           </tr>
           <tr>
             <th>送料</th>
@@ -104,6 +104,7 @@
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, class: "justify-content-center form-inline" do |f| %>
                 <div class="form-group">
                   <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, {}, { class: "form-control" } %>
+                  <%= f.hidden_field :order_detail_id, value: order_detail.id %>
                 </div>
                 <%= f.submit '更新', class:"btn btn-light bg-gold" %>
               <% end %>
