@@ -10,7 +10,7 @@ class Public::SessionsController < Devise::SessionsController
     return if !@customer
 
     if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted == "unsubscribe"
-      flash[:danger] = "新規会員登録してください"
+      flash[:danger] = "新規会員登録してください！"
       redirect_to new_customer_registration_path
     end
   end

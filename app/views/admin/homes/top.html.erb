@@ -30,6 +30,7 @@
               <% @total_amounts += order_detail.amount %>
             <% end %>
             <%= @total_amounts %>
+            <% @total_amounts = 0 %>
           </td>
           <td class="text-center">
             <% if order.order_status == "wait_payment" %>
